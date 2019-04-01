@@ -9,5 +9,8 @@
 *.synctex.gz
 *.toc
 
+# Directories
+images/
+
 # Images
 *.png
