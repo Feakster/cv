@@ -1,0 +1,257 @@
+%==========%
+%          %
+%%%% CV %%%%
+%          %
+%==========%
+
+%%% Document Class %%%
+\documentclass[10pt,a4paper]{article}
+
+%%% Load Packages %%%
+\usepackage[margin=2.5cm]{geometry} % 2.5cm margins all around.
+\usepackage[utf8x]{inputenc} % UTF8 input encoding is preferred by R.
+\usepackage[T1]{fontenc} % Allows more complex characters.
+\usepackage{sectsty} % Change styles of section headers.
+\usepackage{helvet} % Use Helvetica font (Only works with XeLaTeX).
+\usepackage[scaled=0.85]{beramono} % Adds another font.
+\usepackage[british]{babel} % Better hyphenation.
+\usepackage[usenames,dvipsnames]{xcolor} % More colours (like "MidnightBlue").
+\usepackage{graphicx} % Images.
+\usepackage[colorlinks=true,allcolors=MidnightBlue]{hyperref} % Coloured hyperlinks.
+\usepackage{currvita} % CV list style.
+\usepackage{doi} % Hyperlink DOIs.
+
+
+%%% Customisations %%%
+%% Me %%
+\def\name{Benjamin G. Feakins, BSc MSc DPhil}
+%% Font %%
+\renewcommand{\familydefault}{\sfdefault} % Sans serif fonts.
+%% hbox Tolerance %%
+\tolerance=600
+%% Graphics Path %%
+\graphicspath{{./images/}}
+%% File Attributes %%
+\hypersetup
+{
+    pdfauthor={\name},
+    pdfsubject={Curriculum Vitae},
+    pdftitle={\name: Curriculum Vitae},
+    pdfkeywords={PhD, Academic, Statistician, Data Science, Big Data}
+}
+%% Custom section fonts %%
+\sectionfont{\sffamily\mdseries\Large}
+\subsectionfont{\sffamily\mdseries\itshape\large}
+%% Page Setup %%
+\pagestyle{myheadings}
+\markright{\name}
+\thispagestyle{empty}
+\setlength\parindent{0em}% Don't indent paragraphs.
+
+
+%%% Begin Document %%%
+\usepackage{Sweave}
+\begin{document}
+
+
+%%% Insert Title Page %%%
+%\maketitle
+{\huge \name}
+
+\vspace{0.25in}
+
+\begin{minipage}[t]{0.5\textwidth}
+Nuffield Department of Primary Care \\
+Health Sciences, University of Oxford \\
+Radcliffe Observatory Quarter \\
+Woodstock Road Oxford, OX2 6GG, UK \\
+\end{minipage}\begin{minipage}[t]{0.5\textwidth}
+  Email: \href{mailto:benjamin.feakins@phc.ox.ac.uk}{benjamin.feakins@phc.ox.ac.uk} \\
+  Phone: +44(0)1865 617869 \\
+  Work profile: \href{https://www.phc.ox.ac.uk/team/ben-feakins}{www.phc.ox.ac.uk/team} \\
+  Twitter:  \href{https://twitter.com/Feakster86}{@Feakster86} \\
+\end{minipage}
+
+
+%%% Start Document Sections %%%
+%% Academic Qualifications ##
+\noindent\rule{\textwidth}{0.4pt}
+\begin{cvlist}{ACADEMIC QUALIFICATIONS}
+
+  \item[2012 -- 2016]
+  \textbf{DPhil. Primary Health Care}, University of Oxford \\
+  \textbf{Thesis:} ``Competing Risks Methodology in the Evaluation of Cardiovascular \& Cancer Mortality as a Consequence of Nephropathy in Type 2 Diabetes.'' \\
+  \textbf{Research Topics:} Prognostic modelling, Standard \& `competing risks' survival analysis, Type 2 diabetes, Diabetic nephropathy. \\
+  \textbf{Experience:} Systematic reviews, Meta-analysis, Survival analysis, Simulation, Big data, High Performance Computing (HPC), Research proposals.
+
+  \item[2010 -- 2011]
+  \textbf{MSc. (DIC) Modern Epidemiology}, Imperial College London \\
+  \textbf{Dissertation:} ``Estimating the Role of HIV Risk Factors \& Coinfections on HIV Transmission: A Meta-
+Analysis \& Ecological Analysis.'' \\
+  \textbf{Statistics Modules:} Introduction to Epidemiology, Introduction to Statistics, Introduction to Linear \&
+Logistic Regression Modelling, Statistical Modelling, Advanced Regression, Introduction to Bayesian
+Analysis, Spatial Epidemiology, Topics in Biostatistics. \\
+  \textbf{Experience:} Generalised linear models, Survival analysis, Spatial modelling, Time-series analysis,
+Bayesian methodology, Hierarchical/Multi-level modelling using mixed \& random effects, Missing data,
+Measurement error, Multiple testing, Systematic reviews, Meta-analysis.
+
+  \item[2005 -- 2008]
+  \textbf{BSc. (Hons) Physiological Science}, University of Bristol \\
+  \textbf{Dissertation:} ``Serotoninergic \& Noradrenergic Modulation of Umami Taste Transduction.'' \\
+  \textbf{Modules:} Physiology, Anatomy, Human Anatomy, Chemistry, Ion Channels in Behaviour \& Disease, Neuroscience of Hearing \& Deafness, Brain \& Behaviour, Pain. \\
+  \textbf{Experience:} Literature reviews, Oral presentations, Laboratory work, Poster presentations, Ethical reviews, Dissertation \& project writing.
+
+\end{cvlist}
+
+
+%% Teaching Experience %%
+\noindent\rule{\textwidth}{0.4pt}
+\begin{cvlist}{TEACHING EXPERIENCE}
+  
+  \item[2015 -- Present]
+  \textbf{Evidence-Based Health Care Medical Statistics MSc}, University of Oxford \\
+  \textit{Module Coordinator \& Tutor}
+  
+  \item[2013 -- 2014]
+  \textbf{Graduate Entry Programme for Medical Students}, University of Oxford \\
+  \textit{Teaching Assistant}
+  
+\end{cvlist}
+
+
+%% IT Skills %%
+\noindent\rule{\textwidth}{0.4pt}
+\begin{cvlist}{IT SKILLS}
+
+  \item[OS]
+  \textbf{Desktop:} Linux (Debian-, Red Hat- \& Arch-based distributions), macOS \& Windows. \\
+  \textbf{Server:} Linux (Debian-, Red Hat- \& Arch-based distributions).
+  
+  \item[Languages]
+  \textbf{Shell:} Bash. \\
+  \textbf{Markup:} Markdown, \LaTeX , \& HTML5 + CSS. \\
+  \textbf{Statistical:} R, Stata, Python3 \& BUGS.
+  
+  \item[Software]
+  \textbf{Office:} LibreOffice, Apple iWork \& Microsoft Office. \\
+  \textbf{Referencing:} BibTex, Mendeley, Sente, Zotero, JabRef \& EndNote. \\
+  \textbf{Version Control:} Git \& Subversion (use \& hosting).
+  
+\end{cvlist}
+
+
+%% Grants %%
+\noindent\rule{\textwidth}{0.4pt}
+\begin{cvlist}{GRANTS}
+  
+  \item[2018 -- 2019]
+  \textbf{Collaborative Round Funding Award}, University of Oxford \\
+  National Institute for Health Research School for Primary Care Research. \\
+  \textlira 154,000
+  
+  \item[2012 -- 2015]
+  \textbf{PhD Studentship}, University of Oxford \\
+  National Institute for Health Research School for Primary Care Research. \\
+  \textlira 54,000 + \textlira 30,000 expenses.
+  
+\end{cvlist}
+
+
+%% Publications %%
+\noindent\rule{\textwidth}{0.4pt}
+\begin{cvlist}{PUBLICATIONS}
+  
+  % In Prep. %
+  \item[In prep.]
+  Wilcox ML, Fleming S, \textbf{Feakins BG}, Hayward G, Roberts N, Van den Bruel A, Ward A, Thompson M. Diagnostic and Prognostic Value of Pulse Oximetry for Pneumonia in Children: A Systematic Review.
+  
+  \item[Accept.]
+  \textbf{Feakins BG}, Oke J, McFadden EC, Aronson JK, Lasserson D, O'Callaghan CA, Taylor CJ, Hill NR, Stevens RJ, Perera R. Trends in Kidney Function Testing in UK Primary Care Since the Introduction of the Quality and Outcomes Framework: A Retrospective Cohort Study using CPRD. \textit{BMJ Open}
+  
+  % 2019 %
+  \item[]
+  Warto\l{}owska KA, Irving F, DeVito N, \textbf{Feakins BG}, Curtis H, Bacon S, Smeeth L, Heneghan C, Goldacre B. RetractoBot: a Protocol for a Randomised Controlled Trial to Assess the Impact of Notifying Authors that they Have Cited a Retracted Paper. \textit{BMC Medicine} \doi{10.6084/m9.figshare.6177014.v4}
+  
+  % 2018 %
+  \item[2018]
+  \textbf{Feakins BG}, McFadden EC, Stevens RJ, Farmer AJ. Standard and Competing Risks Analysis of the Effect of Albuminuria on Cardiovascular and Cancer Mortality in Patients with Type 2 Diabetes Mellitus. \textit{BMC Diag Prog Res}, \textbf{2}:13. \doi{10.1186/s41512-018-0035-4}
+  
+  \item[]
+  Taylor KS, Verbakel JY, \textbf{Feakins BG}, Price CP, Perera R, Bankhead C, Pl\"uddemann A. Accuracy of Point-of-Care Natriuretic Peptide Testing in the Diagnosis of Heart Failure in Ambulatory Care: A Systematic Review and Meta-Analysis. \textit{BMJ}. \textbf{361}:k1450. \doi{10.1136/bmj.k1450} %\includegraphics[width=0.8em,keepaspectratio]{29785952}
+  
+  \item[2017]
+  Warto\l{}owska KA, Gerry SG, \textbf{Feakins BG}, Collins GS, Cook JA, Judge A, Carr AJ. A Meta-Analysis of Temporal Changes of Response in the Placebo Arm of Surgical Randomised Controlled Trials: An Update. \textit{Trials}, \textbf{18}:323. \doi{10.1186/s13063-017-2070-9} %\includegraphics[width=0.8em,keepaspectratio]{28701195}
+  
+  \item[]
+  Hirst JA, McLelllan JH, Price CP, English E, \textbf{Feakins BG}, Stevens RJ, Farmer AJ. Performance of Point-of-Care HbA1c Test Devices: Implications for use in Clinical Practice - A Systematic Review and Meta-Analysis. \textit{Clin Chem Lab Med}, \textbf{55}:167-180. \doi{10.1515/cclm-2016-0303}
+  
+  \item[2016]
+  Warto\l{}owska KA, \textbf{Feakins BG}, Collins GS, Cook JA, Judge A, Rombach I, Dean BJF, Smith JA, Carr AJ. The Magnitude and Temporal Changes of Response in the Placebo Arm of Surgical Randomised Controlled Trials: A Systematic Review and Meta-Analysis. \textit{Trials}, \textbf{17}:589. \doi{10.1186/s13063-016-1720-7} %\includegraphics[width=0.8em,keepaspectratio]{28701195}
+  
+  \item[]
+  Hirst JA, \textbf{Feakins BG}, Aronson JK, Farmer AJ, Stevens RJ. Short- and Long-Term Effects of Moderate Alcohol Intake on Glycaemic Control in Diabetes Mellitus - A Systematic Review and Meta-Analysis. \textit{Diab Med}, \textbf{34}:604-611. \doi{10.1111/dme.13259} %\includegraphics[width=0.8em,keepaspectratio]{27588354}
+  
+  \item[2015]
+  Hirst JA, Farmer AJ, \textbf{Feakins BG}, Aronson JK, Stevens RJ. Quantifying the Effects of Diuretics and Beta-Blockers on Glycaemic Control in Diabetes Mellitus - A Systematic Review and Meta-Analysis. \textit{Br J Clin Pharmacol}, \textbf{79}:733-743. \doi{10.1111/bcp.12543} %\includegraphics[width=0.8em,keepaspectratio]{25377481}
+  
+\end{cvlist}
+
+
+%% Conference Presentations %%
+\noindent\rule{\textwidth}{0.4pt}
+\begin{cvlist}{CONFERENCE PRESENTATIONS}
+  
+  \item[2017]
+  \textbf{Feakins BG}, McFadden EC, Farmer AJ, Stevens RJ. The Impact of Albuminuria on Cardiovascular Mortality in Type 2 Diabetes: A Systematic Review. \textit{South-West Society for Academic Primary Care}. Oxford, UK
+  
+  \item[]
+  Warto\l{}owska KA, Gerry S, \textbf{Feakins BG}, Collins GS, Cook J, Judge A, Carr AJ. Temporal Characteristics of Effect Size in the Placebo Arm of Surgical Randomised Controlled Trials - A Meta-Analysis. \textit{Evidence Live}. Oxford, UK
+  
+\end{cvlist}
+
+
+%% Conference Posters %%
+\noindent\rule{\textwidth}{0.4pt}
+\begin{cvlist}{CONFERENCE POSTERS}
+  
+  \item[2014]
+  Hirst JA, Farmer AJ, \textbf{Feakins BG}, Aronson JK, Stevens RJ. A Systematic Review and Meta-Analysis of the Effects of Diuretics and Beta-Blockers on Glycaemic Control in Diabetes Mellitus. \textit{European Association for the Study of Diabetes Annual Meeting}. Vienna, Austria
+  
+  \item[]
+  \textbf{Feakins BG}, McFadden EC, Stevens RJ, Farmer AJ. The Analysis and Reporting of Cardiovascular and Neoplastic Event Data in Type 2 Diabetic Populations with Diabetic Nephropathy: A Systematic Review. \textit{National Institute for Health Research School for Primary Care Research Annual Trainees' Event}. Oxford, UK.
+  
+  \item[2013]
+  \textbf{Feakins BG}, Hypothesis Testing. \textit{Burwalls Annual Meeting}. Oxford, UK.
+  
+  \item[]
+  \textbf{Feakins BG}, McFadden EC, Stevens RJ, Farmer AJ. Differential Analysis and Reporting of Longitudinal Event Data in Type 2 Diabetic Nephropathic Study Populations: A Systematic Review. \textit{National Institute for Health Research School for Primary Care Research Annual Trainees' Event}. Oxford, UK.
+  
+  \item[2009]
+  Donaldon LF, Heath TP, \textbf{Feakins B}, Jones N, Kenyan C, Raichura S, Richardson E, Rooshenas L, Smith V, Melichar JK. Monosodium Glutamate Taste Recognition Thresholds are not affected by Modulation of Serotonin or Noradrenaline Levels in Healthy Humans. \textit{Association for Chemoreception Sciences Annual Meeting}. Sarasota. Florida, USA.
+  
+\end{cvlist}
+
+
+%% Employment %%
+\noindent\rule{\textwidth}{0.4pt}
+\begin{cvlist}{EMPLOYMENT}
+  
+  \item[2015 -- Present]
+  \textbf{Nuffield Dept Primary Care Health Sciences}, University of Oxford \\
+  \textit{Statistician}
+  
+  \item[2011 -- 2012]
+  \textbf{Phoenix Property Services}, Gloucester \\
+  \textit{Owner}
+  
+  \item[2009 -- 2010]
+  \textbf{Staples}, Gloucester \\
+  \textit{Inventory Team Leader}
+  
+  \item[2008 -- 2009]
+  \textbf{Phil \& Ben… The Bathroom Men}, Tewkesbury \\
+  \textit{Co-Owner}
+  
+\end{cvlist}
+
+\end{document}

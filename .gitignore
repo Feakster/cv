@@ -1,0 +1,13 @@
+# LaTeX Output Files
+*.aux
+*concordance.tex
+*.lof
+*.log
+*.nav
+*.pdf
+*.snm
+*.synctex.gz
+*.toc
+
+# Images
+*.png
