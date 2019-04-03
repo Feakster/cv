@@ -4,18 +4,23 @@
 %          %
 %==========%
 
+
+%%% Notes %%%
+% - Compile using XeLaTeX.
+
+
 %%% Document Class %%%
 \documentclass[10pt,a4paper]{article}
 
+
 %%% Load Packages %%%
 \usepackage[margin=2.5cm]{geometry} % 2.5cm margins all around.
-\usepackage[utf8x]{inputenc} % UTF8 input encoding is preferred by R.
 \usepackage[T1]{fontenc} % Allows more complex characters.
 \usepackage{sectsty} % Change styles of section headers.
 \usepackage{helvet} % Use Helvetica font (Only works with XeLaTeX).
 \usepackage[scaled=0.85]{beramono} % Adds another font.
 \usepackage[british]{babel} % Better hyphenation.
-\usepackage[usenames,dvipsnames]{xcolor} % More colours (like "MidnightBlue").
+\usepackage[svgnames]{xcolor} % More colours (like "MidnightBlue").
 \usepackage{graphicx} % Images.
 \usepackage[colorlinks=true,allcolors=MidnightBlue]{hyperref} % Coloured hyperlinks.
 \usepackage{currvita} % CV list style.
@@ -25,8 +30,6 @@
 %%% Customisations %%%
 %% Me %%
 \def\name{Benjamin G. Feakins, BSc MSc DPhil}
-%% Font %%
-\renewcommand{\familydefault}{\sfdefault} % Sans serif fonts.
 %% hbox Tolerance %%
 \tolerance=600
 %% Graphics Path %%
@@ -34,12 +37,18 @@
 %% File Attributes %%
 \hypersetup
 {
+	pdfpagemode={UseThumbs},  
     pdfauthor={\name},
     pdfsubject={Curriculum Vitae},
     pdftitle={\name: Curriculum Vitae},
-    pdfkeywords={PhD, Academic, Statistician, Data Science, Big Data}
+    pdfkeywords={PhD, Academic, Statistician, Data Science, Big Data},
+    pdflang={en-GB},
+    pdfnewwindow={True},
+    pdfpagelayout={TwoPageLeft}
 }
-%% Custom section fonts %%
+%% Font %%
+\renewcommand{\familydefault}{\sfdefault} % Sans serif fonts.
+%% Custom Section Fonts %%
 \sectionfont{\sffamily\mdseries\Large}
 \subsectionfont{\sffamily\mdseries\itshape\large}
 %% Page Setup %%
@@ -50,7 +59,6 @@
 
 
 %%% Begin Document %%%
-\usepackage{Sweave}
 \begin{document}
 
 
@@ -61,16 +69,22 @@
 \vspace{0.25in}
 
 \begin{minipage}[t]{0.5\textwidth}
+\raggedright
 Nuffield Department of Primary Care \\
 Health Sciences, University of Oxford \\
 Radcliffe Observatory Quarter \\
 Woodstock Road Oxford, OX2 6GG, UK \\
 \end{minipage}\begin{minipage}[t]{0.5\textwidth}
-  Email: \href{mailto:benjamin.feakins@phc.ox.ac.uk}{benjamin.feakins@phc.ox.ac.uk} \\
-  Phone: +44(0)1865 617869 \\
-  Work profile: \href{https://www.phc.ox.ac.uk/team/ben-feakins}{www.phc.ox.ac.uk/team} \\
-  Twitter:  \href{https://twitter.com/Feakster86}{@Feakster86} \\
+\raggedright
+Email: \href{mailto:benjamin.feakins@phc.ox.ac.uk}{benjamin.feakins@phc.ox.ac.uk} \\
+Phone: +44(0)1865 617869 \\
+Work profile: \href{https://www.phc.ox.ac.uk/team/ben-feakins}{www.phc.ox.ac.uk/team} \\
+Twitter:  \href{https://twitter.com/Feakster86}{@Feakster86} \\
 \end{minipage}
+
+\vspace{0.25in}
+
+\sloppy
 
 
 %%% Start Document Sections %%%
@@ -86,14 +100,9 @@ Woodstock Road Oxford, OX2 6GG, UK \\
 
   \item[2010 -- 2011]
   \textbf{MSc. (DIC) Modern Epidemiology}, Imperial College London \\
-  \textbf{Dissertation:} ``Estimating the Role of HIV Risk Factors \& Coinfections on HIV Transmission: A Meta-
-Analysis \& Ecological Analysis.'' \\
-  \textbf{Statistics Modules:} Introduction to Epidemiology, Introduction to Statistics, Introduction to Linear \&
-Logistic Regression Modelling, Statistical Modelling, Advanced Regression, Introduction to Bayesian
-Analysis, Spatial Epidemiology, Topics in Biostatistics. \\
-  \textbf{Experience:} Generalised linear models, Survival analysis, Spatial modelling, Time-series analysis,
-Bayesian methodology, Hierarchical/Multi-level modelling using mixed \& random effects, Missing data,
-Measurement error, Multiple testing, Systematic reviews, Meta-analysis.
+  \textbf{Dissertation:} ``Estimating the Role of HIV Risk Factors \& Coinfections on HIV Transmission: A Meta-Analysis \& Ecological Analysis.'' \\
+  \textbf{Statistics Modules:} Introduction to Epidemiology, Introduction to Statistics, Introduction to Linear \& Logistic Regression Modelling, Statistical Modelling, Advanced Regression, Introduction to Bayesian Analysis, Spatial Epidemiology, Topics in Biostatistics. \\
+  \textbf{Experience:} Generalised linear models, Survival analysis, Spatial modelling, Time-series analysis, Bayesian methodology, Hierarchical/Multi-level modelling using mixed \& random effects, Missing data, Measurement error, Multiple testing, Systematic reviews, Meta-analysis.
 
   \item[2005 -- 2008]
   \textbf{BSc. (Hons) Physiological Science}, University of Bristol \\
@@ -147,12 +156,12 @@ Measurement error, Multiple testing, Systematic reviews, Meta-analysis.
   \item[2018 -- 2019]
   \textbf{Collaborative Round Funding Award}, University of Oxford \\
   National Institute for Health Research School for Primary Care Research. \\
-  \textlira 154,000
+  \textsterling 154,000
   
   \item[2012 -- 2015]
   \textbf{PhD Studentship}, University of Oxford \\
   National Institute for Health Research School for Primary Care Research. \\
-  \textlira 54,000 + \textlira 30,000 expenses.
+  \textsterling 54,000 + \textsterling 30,000 expenses.
   
 \end{cvlist}
 

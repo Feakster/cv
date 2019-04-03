@@ -4,6 +4,7 @@
 *.lof
 *.log
 *.nav
+*.out
 *.pdf
 *.snm
 *.synctex.gz
