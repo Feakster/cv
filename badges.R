@@ -5,7 +5,7 @@ library(rAltmetric)
 ### Create Images Folder ###
 dir.create("images", showWarnings = F)
 
-### PubMed IDs ###
+### DOIs ###
 doi <- list(
   "10.1136/bmj.k1450",
   "10.1186/s41512-018-0035-4",
@@ -44,9 +44,7 @@ extract_alt <- function(doi,  hps.max = 1){
     i <- length(authors)
     authors <- authors[1:(i/2)]
     dt <- data.table(
-      pmid = if(!is.null(alt[["pmid"]])){
-        alt[["pmid"]]
-        } else {NA},
+      pmid = if(!is.null(alt[["pmid"]])){alt[["pmid"]]} else {NA},
       doi = alt[["doi"]],
       authors = paste(authors, collapse = ", "),
       title = alt[["title"]],
@@ -71,12 +69,12 @@ dt <- suppressMessages(lapply(doi, extract_alt, hps.max = 1)); rm(doi)
 ### Collate Results ###
 dt <- rbindlist(dt)
 
-### Define Badge Data ###
+### Define Rosette Data ###
 dt <- dt[complete.cases(badge)]
 doi <- gsub("[[:punct:]]", "_", dt[, doi])
 url <- dt[, badge]
 
-### Define Rossette Extraction Function ###
+### Define Rosette Extraction Function ###
 getBadge <- function(doi, url){
   download.file(url, paste0("./images/", doi, ".png"), mode = "wb", quiet = T)
 }
