@@ -1,10 +1,9 @@
 ### Load Packages ###
-library(parallel)
 library(data.table)
 library(rAltmetric)
 
-### Options ###
-options(altmetricKey = readLines('~/Documents/Karolina/Retractobot/altmetric_key.txt'))
+### Create Images Folder ###
+dir.create("images", showWarnings = F)
 
 ### PubMed IDs ###
 doi <- list(
@@ -16,10 +15,10 @@ doi <- list(
   "10.1515/cclm-2016-0303",
   "10.1111/bcp.12543"
 )
-#pmid <- c(29785952, 28701195, 27955685, 27588354, 27658148, 25377481)
 
-### Define Extraction Function ###
-extract_alt <- function(doi){
+### Define Altmetric Data Extraction Function ###
+extract_alt <- function(doi,  hps.max = 1){
+  time1 <- Sys.time()
   alt <- tryCatch({
     altmetrics(doi = doi)
   },
@@ -29,7 +28,7 @@ extract_alt <- function(doi){
   })
   if(is.null(alt)){
     dt <- data.table(
-      #pmid = NA,
+      pmid = NA,
       doi = NA,
       authors = NA,
       title = NA,
@@ -45,9 +44,10 @@ extract_alt <- function(doi){
     i <- length(authors)
     authors <- authors[1:(i/2)]
     dt <- data.table(
-      #pmid = alt[["pmid"]],
+      pmid = if(!is.null(alt[["pmid"]])){
+        alt[["pmid"]]
+        } else {NA},
       doi = alt[["doi"]],
-      #authors = paste(alt[["authors"]][(length(alt[["authors"]] + 1)):length(alt[["authors"]])], collapse = ", "),
       authors = paste(authors, collapse = ", "),
       title = alt[["title"]],
       year = alt[["published_on"]],
@@ -58,24 +58,27 @@ extract_alt <- function(doi){
     )
   }
   dt[, year := year(as.POSIXct(year, origin = "1970-01-01"))]
+  time2 <- Sys.time()
+  timer <- difftime(time2, time1, units = "secs")
+  delay <- 1/hps.max
+  if (timer < delay) Sys.sleep(delay - timer)
   return(dt)
 }
 
-### Scrape Data Using Function ###
-setDTthreads(1L)
-dt <- mclapply(doi, extract_alt); rm(doi)
-setDTthreads(detectCores())
+### Scrape Altmetric Data ###
+dt <- suppressMessages(lapply(doi, extract_alt, hps.max = 1)); rm(doi)
 
 ### Collate Results ###
 dt <- rbindlist(dt)
 
-### Get Badges ###
+### Define Badge Data ###
 dt <- dt[complete.cases(badge)]
-pmid <- dt$pmid
-url <- dt$badge
-getBadge <- function(pmid, url){
-  download.file(url, paste0("./images/", pmid, ".png"), mode = "wb", quiet = T)
+doi <- gsub("[[:punct:]]", "_", dt[, doi])
+url <- dt[, badge]
+
+### Define Rossette Extraction Function ###
+getBadge <- function(doi, url){
+  download.file(url, paste0("./images/", doi, ".png"), mode = "wb", quiet = T)
 }
-setDTthreads(1L)
-mcmapply(getBadge, pmid, url)
-setDTthreads(detectCores())
+### Scrape Altmetric Rosettes ###
+invisible(mapply(getBadge, doi, url))
