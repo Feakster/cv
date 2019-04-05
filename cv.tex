@@ -1,4 +1,4 @@
-% !TEX TS-program = pdflatex
+% !TeX TS-program = pdflatex
 % !TeX spellcheck = en_GB
 
 %========================%
@@ -42,13 +42,14 @@
 \tolerance=600
 %% File Attributes %%
 \hypersetup{
-  bookmarks={true}, % Show bookmarks bar.
   pdfstartview={FitH}, % Fits the width of the page to the window.
   pdfauthor={\name}, % Author.
   pdfsubject={Curriculum Vitae}, % Subject.
   pdftitle={\name: Curriculum Vitae}, % Title.
   pdfkeywords={PhD, Academic, Statistician, Data Science, Big Data} % Keywords.
 }
+%% Suppress Page Group Warnings %%
+\pdfsuppresswarningpagegroup=1 % Caused by inclusion of PDFs as images.
 %% Font %%
 \renewcommand{\familydefault}{\sfdefault} % Sans serif fonts.
 %% Custom Section Fonts %%
