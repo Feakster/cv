@@ -2,8 +2,8 @@
 library(data.table)
 library(rAltmetric)
 
-### Create Images Folder ###
-dir.create("images", showWarnings = F)
+### Create Badges Folder ###
+dir.create("badges", showWarnings = F)
 
 ### DOIs ###
 doi <- list(
@@ -76,7 +76,7 @@ url <- dt[, badge]
 
 ### Define Rosette Extraction Function ###
 getBadge <- function(doi, url){
-  download.file(url, paste0("./images/", doi, ".png"), mode = "wb", quiet = T)
+  download.file(url, paste0("./badges/", doi, ".png"), mode = "wb", quiet = T)
 }
 ### Scrape Altmetric Rosettes ###
 invisible(mapply(getBadge, doi, url))
