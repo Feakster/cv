@@ -7,7 +7,7 @@
 #================================#
 
 ### TODO ###
-# - Find out why pdf compilation results in translucent images.
+# - Find out why XeLaTeX compilation results in translucent images.
 
 ### Get Altmetric Rosettes ###
 echo 'Acquiring Altmetric Rosettes ...'
@@ -15,8 +15,10 @@ Rscript "badges.R"
 
 ### Compile PDF ###
 echo 'Compiling PDF ...'
-xelatex -no-pdf "cv.tex" > /dev/null
-xelatex "cv.tex" > /dev/null
+pdflatex -synctex=1 -interaction=nonstopmode -nopdf "cv.tex" > /dev/null
+pdflatex -synctex=1 -interaction=nonstopmode "cv.tex" > /dev/null
+# xelatex -no-pdf "cv.tex" > /dev/null
+# xelatex "cv.tex" > /dev/null
 
 ### Tidy Up ###
 echo 'Removing Ancillary Files ...'
