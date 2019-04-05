@@ -1,19 +1,10 @@
 # LaTeX Output Files
 *.aux
-*concordance.tex
-*.lof
 *.log
-*.nav
 *.out
 *.pdf
-*.snm
 *.synctex.gz
-*.toc
 
 # Directories
 badges/
 logos/
-
-# Images
-*.png
-*.jpg
