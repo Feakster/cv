@@ -9,6 +9,10 @@
 ### TODO ###
 # - Find out why XeLaTeX compilation results in translucent images.
 
+### Acquire Icons ###
+echo 'Acquiring icons ...'
+sh "icons.sh"
+
 ### Get Altmetric Rosettes ###
 echo 'Acquiring Altmetric Rosettes ...'
 Rscript "badges.R"
