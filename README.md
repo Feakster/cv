@@ -6,7 +6,7 @@ In order to compile this CV you will need to be using a Unix-like system with pd
 ## Compilation
 Execute the following lines of code to clone the repository and compile the CV.
 
-```
+```bash
 cd ~/Downloads
 mkdir CV
 git clone https://github.com/Feakster/cv.git CV/
