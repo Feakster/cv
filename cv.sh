@@ -19,8 +19,8 @@ Rscript "badges.R"
 
 ### Compile PDF ###
 echo 'Compiling PDF ...'
-pdflatex -synctex=1 -interaction=nonstopmode -nopdf "cv.tex" > /dev/null
-pdflatex -synctex=1 -interaction=nonstopmode "cv.tex" > /dev/null
+pdflatex -synctex=1 -interaction=nonstopmode "cv.tex" > /dev/null # First compilation
+pdflatex -synctex=1 -interaction=nonstopmode "cv.tex" > /dev/null # Second compilation
 # xelatex -no-pdf "cv.tex" > /dev/null
 # xelatex "cv.tex" > /dev/null
 

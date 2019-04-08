@@ -24,32 +24,37 @@ fi
 echo 'Downloading icons ...'
 if [ ! -f "./$DIR/email.svg" ]
 then
-  curl -s http://www.clker.com/cliparts/0/6/8/3/12065629431871551574qubodup_16x16px-capable_black_and_white_icons_10.svg > ./icons/email.svg # Email
+  curl -s https://38h6q83kpel22aipe0iux4i1-wpengine.netdna-ssl.com/wp-content/themes/dimensions/public/images/logo.svg > "./$DIR/dimensions.svg" # Dimensions
+fi
+
+if [ ! -f "./$DIR/email.svg" ]
+then
+  curl -s http://www.clker.com/cliparts/0/6/8/3/12065629431871551574qubodup_16x16px-capable_black_and_white_icons_10.svg > "./$DIR/email.svg" # Email
 fi
 
 if [ ! -f "./$DIR/github.svg" ]
 then
-  curl -s https://image.flaticon.com/icons/svg/25/25231.svg > ./icons/github.svg # GitHub
+  curl -s https://image.flaticon.com/icons/svg/25/25231.svg > "./$DIR/github.svg" # GitHub
 fi
 
 if [ ! -f "./$DIR/phone.svg" ]
 then
-  curl -s http://cdn.onlinewebfonts.com/svg/download_247097.svg > ./icons/phone.svg # Phone
+  curl -s http://cdn.onlinewebfonts.com/svg/download_247097.svg > "./$DIR/phone.svg" # Phone
 fi
 
 if [ ! -f "./$DIR/twitter.svg" ]
 then
-  curl -s https://image.flaticon.com/icons/svg/8/8800.svg > ./icons/twitter.svg # Twitter
+  curl -s https://image.flaticon.com/icons/svg/8/8800.svg > "./$DIR/twitter.svg" # Twitter
 fi
 
 if [ ! -f "./$DIR/website.svg" ]
 then
-  curl -s https://openclipart.org/download/216096/WWW-Icon.svg > ./icons/website.svg # Website
+  curl -s https://openclipart.org/download/216096/WWW-Icon.svg > "./$DIR/website.svg" # Website
 fi
 
 ### Convert SVG to PDF ###
 echo 'Converting icons ...'
-for FILE in email github phone twitter website
+for FILE in dimensions email github phone twitter website
 do
   if [ ! -f "./$DIR/$FILE.pdf" ]
   then

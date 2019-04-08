@@ -9,5 +9,7 @@ Execute the following lines of code to clone the repository and compile the CV.
 ```
 cd ~/Downloads
 mkdir CV
-git clone git@github.com:Feakster/cv.git ./CV/
+git clone https://github.com/Feakster/cv.git CV/
+cd CV
+sh cv.sh
 ```
