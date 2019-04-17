@@ -22,7 +22,7 @@ fi
 
 ### Get Vector Graphics ###
 echo 'Downloading icons ...'
-if [ ! -f "./$DIR/email.svg" ]
+if [ ! -f "./$DIR/dimensions.svg" ]
 then
   curl -s https://38h6q83kpel22aipe0iux4i1-wpengine.netdna-ssl.com/wp-content/themes/dimensions/public/images/logo.svg > "./$DIR/dimensions.svg" # Dimensions
 fi
