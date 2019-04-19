@@ -13,8 +13,8 @@
 echo 'Acquiring icons ...'
 sh "icons.sh"
 
-### Get Altmetric Rosettes ###
-echo 'Acquiring Altmetric Rosettes ...'
+### Get Altmetric Badges ###
+echo 'Acquiring Altmetric Badges ...'
 Rscript "badges.R"
 
 ### Compile PDF ###
