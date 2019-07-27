@@ -26,6 +26,6 @@ pdflatex -synctex=1 -interaction=nonstopmode "cv.tex" > /dev/null # Second compi
 
 ### Tidy Up ###
 echo 'Removing Ancillary Files ...'
-rm "cv.aux" "cv.log" "cv.out"
+rm "cv.aux" "cv.log" "cv.out" "cv.synctex.gz"
 
 echo 'CV Ready!'
