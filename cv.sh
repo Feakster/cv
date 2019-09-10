@@ -24,6 +24,9 @@ pdflatex -synctex=1 -interaction=nonstopmode "cv.tex" > /dev/null # Second compi
 # xelatex -no-pdf "cv.tex" > /dev/null
 # xelatex "cv.tex" > /dev/null
 
+### Renaming ###
+mv cv.pdf "Benjamin Feakins - CV.pdf"
+
 ### Tidy Up ###
 echo 'Removing Ancillary Files ...'
 rm "cv.aux" "cv.log" "cv.out" "cv.synctex.gz"
