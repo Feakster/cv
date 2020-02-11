@@ -2,7 +2,7 @@
 
 <!-- Badges -->
 [![license](https://img.shields.io/badge/license-MIT-blue)](https://choosealicense.com/licenses/mit/)
-![platform-suport](https://img.shields.io/badge/platform-linux%20%7C%20macos-lightgrey)
+[![platform-suport](https://img.shields.io/badge/platform-linux%20%7C%20macos-lightgrey)](https://en.wikipedia.org/wiki/Computing_platform)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 
 ## Prerequisites
