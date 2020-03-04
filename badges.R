@@ -19,7 +19,8 @@ doi <- list(
   "10.1016/j.jnucmat.2018.04.022",
   "10.1136/bmj.k2387",
   "10.1136/bmjopen-2017-019637",
-  "10.12688/f1000research.20229.1"
+  "10.12688/f1000research.20229.1",
+  "10.3399/bjgpopen20X101016"
 )
 
 ### Define Altmetric Data Extraction Function ###
