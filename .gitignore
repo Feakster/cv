@@ -1,6 +1,9 @@
 # R Files
 .Rhistory
 
+# RMD Files
+*.html
+
 # LaTeX Output Files
 *.aux
 *.log
