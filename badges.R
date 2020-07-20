@@ -1,5 +1,4 @@
 ### Load Packages ###
-library(data.table)
 library(rAltmetric)
 
 ### Create Badges Folder ###
@@ -25,35 +24,57 @@ doi <- list(
 
 ### Define Altmetric Data Extraction Function ###
 extract_alt <- function(doi,  hps.max = 1){
+  
+  ## Timer Start ##
   time1 <- Sys.time()
+  
   alt <- tryCatch({
+    
     altmetrics(doi = doi)
+    
   },
+  
   error = function(e){
-    message(paste("DOI:", doi, "not found!"))
+    
+    warning(paste("DOI:", doi, "not found!"))
     return(NULL)
+    
   })
+  
   if(is.null(alt)){
-    dt <- data.table(
-      pmid = NA,
-      doi = NA,
-      authors = NA,
-      title = NA,
-      year = NA,
-      journal = NA,
-      url = NA,
-      badge = NA,
-      score = NA
+    
+    dat <- data.frame(
+      pmid = NA_character_,
+      doi = NA_character_,
+      authors = NA_character_,
+      title = NA_character_,
+      year = NA_integer_,
+      journal = NA_character_,
+      url = NA_character_,
+      badge = NA_character_,
+      score = NA_real_
     )
-  }
-  if(!is.null(alt)){
-    authors <- alt[["authors"]]
-    i <- length(authors)
-    authors <- authors[1:(i/2)]
-    dt <- data.table(
-      pmid = if(!is.null(alt[["pmid"]])){alt[["pmid"]]} else {NA},
+    
+  } else {
+    
+    ## Format Authors ##
+    alt[["authors"]] <- alt[["authors"]]
+    i <- length(alt[["authors"]])
+    alt[["authors"]] <- alt[["authors"]][1:(i/2)]
+    alt[["authors"]] <- paste(alt[["authors"]], collapse = ", ")
+    
+    ## Format Year ##
+    alt[["published_on"]] <- as.POSIXct(alt[["published_on"]], origin = "1970-01-01")
+    alt[["published_on"]] <- as.integer(substr(alt[["published_on"]], 1, 4))
+    
+    ## Check for Missing PMID ##
+    if (is.null(alt[["pmid"]])) alt[["pmid"]] <- NA_character_
+    
+    ## Format Output ##
+    dat <- data.frame(
+      pmid = alt[["pmid"]],
       doi = alt[["doi"]],
-      authors = paste(authors, collapse = ", "),
+      authors = alt[["authors"]],
       title = alt[["title"]],
       year = alt[["published_on"]],
       journal = alt[["journal"]],
@@ -61,29 +82,38 @@ extract_alt <- function(doi,  hps.max = 1){
       badge = alt[["images.large"]],
       score = alt[["score"]]
     )
+    
   }
-  dt[, year := year(as.POSIXct(year, origin = "1970-01-01"))]
+  
+  ## Timer Stop ##
   time2 <- Sys.time()
   timer <- difftime(time2, time1, units = "secs")
+  
+  ## Rate Limiter ##
   delay <- 1/hps.max
   if (timer < delay) Sys.sleep(delay - timer)
-  return(dt)
+  
+  ## Output ##
+  return(dat)
+  
 }
 
 ### Scrape Altmetric Data ###
-dt <- suppressMessages(lapply(doi, extract_alt, hps.max = 1)); rm(doi)
+dat <- suppressWarnings(lapply(doi, extract_alt, hps.max = 1)); rm(doi)
 
 ### Collate Results ###
-dt <- rbindlist(dt)
+dat <- do.call(rbind, dat)
 
 ### Define Rosette Data ###
-dt <- dt[complete.cases(badge)]
-doi <- gsub("[[:punct:]]", "_", dt[, doi])
-url <- dt[, badge]
+dat <- dat[complete.cases(dat[["badge"]]), ]
+url <- dat[["badge"]]
+doi <- gsub("[[:punct:]]", "_", dat[["doi"]])
+doi <- paste0("./badges/", doi, ".png")
 
 ### Define Rosette Extraction Function ###
 getBadge <- function(doi, url){
-  download.file(url, paste0("./badges/", doi, ".png"), mode = "wb", quiet = T)
+  download.file(url = url, destfile = doi, quiet = T, mode = "wb")
 }
+
 ### Scrape Altmetric Rosettes ###
 invisible(mapply(getBadge, doi, url))
