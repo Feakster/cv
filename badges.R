@@ -23,7 +23,7 @@ doi <- list(
 )
 
 ### Define Altmetric Data Extraction Function ###
-extract_alt <- function(doi,  hps.max = 1){
+extract_alt <- function(doi, hps.max = 1){
   
   ## Timer Start ##
   time1 <- Sys.time()
