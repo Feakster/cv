@@ -25,7 +25,7 @@ echo 'Downloading icons ...'
 ## Dimensions Icon ##
 if [ ! -f "./$DIR/dimensions.svg" ]
 then
-  URL=https://38h6q83kpel22aipe0iux4i1-wpengine.netdna-ssl.com/wp-content/themes/dimensions/public/images/logo.svg
+  URL=https://static-content.dimensions.ai/static/radar/default/logo-20190221.svg
   if curl -Is $URL | head -n 1 | grep "200" > /dev/null
   then
     curl -s $URL > "./$DIR/dimensions.svg"
@@ -38,7 +38,7 @@ fi
 ## Email Icon ##
 if [ ! -f "./$DIR/email.svg" ]
 then
-  URL=http://www.clker.com/cliparts/0/6/8/3/12065629431871551574qubodup_16x16px-capable_black_and_white_icons_10.svg
+  URL=https://unpkg.com/ionicons@5.2.3/dist/svg/mail.svg
   if curl -Is $URL | head -n 1 | grep "200" > /dev/null
   then
     curl -s $URL > "./$DIR/email.svg"
@@ -51,7 +51,7 @@ fi
 ## GitHub Icon ##
 if [ ! -f "./$DIR/github.svg" ]
 then
-  URL=https://image.flaticon.com/icons/svg/25/25231.svg
+  URL=https://unpkg.com/ionicons@5.2.3/dist/svg/logo-github.svg
   if curl -Is $URL | head -n 1 | grep "200" > /dev/null
   then
     curl -s $URL > "./$DIR/github.svg"
@@ -64,7 +64,7 @@ fi
 ## Phone Icon ##
 if [ ! -f "./$DIR/phone.svg" ]
 then
-  URL=http://cdn.onlinewebfonts.com/svg/download_247097.svg
+  URL=https://unpkg.com/ionicons@5.2.3/dist/svg/call.svg
   if curl -Is $URL | head -n 1 | grep "200" > /dev/null
   then
     curl -s $URL > "./$DIR/phone.svg"
@@ -77,7 +77,7 @@ fi
 ## Twitter Icon ##
 if [ ! -f "./$DIR/twitter.svg" ]
 then
-  URL=https://image.flaticon.com/icons/svg/8/8800.svg
+  URL=https://unpkg.com/ionicons@5.2.3/dist/svg/logo-twitter.svg
   if curl -Is $URL | head -n 1 | grep "200" > /dev/null
   then
     curl -s $URL > "./$DIR/twitter.svg"
@@ -90,7 +90,7 @@ fi
 ## Website Icon ##
 if [ ! -f "./$DIR/website.svg" ]
 then
-  URL=https://openclipart.org/download/216096/WWW-Icon.svg
+  URL=https://unpkg.com/ionicons@5.2.3/dist/svg/globe.svg
   if curl -Is $URL | head -n 1 | grep "200" > /dev/null
   then
     curl -s $URL > "./$DIR/website.svg"
